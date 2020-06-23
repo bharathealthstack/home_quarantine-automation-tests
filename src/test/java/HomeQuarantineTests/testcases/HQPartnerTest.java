@@ -12,7 +12,7 @@ import java.awt.*;
 public class HQPartnerTest extends ProjectWrappers {
 
       public String n="cellnumber";
-      public String path="/Users/madanraj.thangarajthoughtworks.com/Desktop/Automation_success_flow.xlsx";
+      public String path="/Users/madanraj.thangarajthoughtworks.com/Desktop/HQ/Home_Quarantine/src/test/java/HomeQuarantineTests/xlsx/Automation_success_flow.xlsx";
 
 
     @BeforeClass

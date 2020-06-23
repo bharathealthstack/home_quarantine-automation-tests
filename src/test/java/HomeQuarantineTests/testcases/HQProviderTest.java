@@ -11,7 +11,7 @@ import java.awt.*;
 public class HQProviderTest extends ProjectWrappers {
 
     public String n="phonenumber";
-    public String path="/Users/madanraj.thangarajthoughtworks.com/Desktop/service_provider.xlsx";
+    public String path="/Users/madanraj.thangarajthoughtworks.com/Desktop/HQ/Home_Quarantine/src/test/java/HomeQuarantineTests/xlsx/service_provider.xlsx";
 
     @BeforeClass
     public void beforeClass() {
