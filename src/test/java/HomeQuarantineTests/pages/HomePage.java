@@ -51,35 +51,34 @@ public class HomePage extends HomePageObjects {
 
         Thread.sleep(4000);
         //File Need to be imported
+        // Specify the file location with extension
+        StringSelection sel = new StringSelection(path);
 
-        File file = new File(path);
+        // Copy to clipboard
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel,null);
+        System.out.println("selection" +sel);
 
-        StringSelection StringSelection = new StringSelection(file.getAbsolutePath());
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(StringSelection, null);
 
-        driver.switchTo().window(driver.getWindowHandle());
-
+        // Create object of Robot class
         Robot robot = new Robot();
+        Thread.sleep(1000);
 
-        //Open Goto window
-        robot.keyPress(KeyEvent.VK_META);
-        robot.keyPress(KeyEvent.VK_SHIFT);
-        robot.keyPress(KeyEvent.VK_G);
-        robot.keyRelease(KeyEvent.VK_META);
-        robot.keyRelease(KeyEvent.VK_SHIFT);
-        robot.keyRelease(KeyEvent.VK_G);
-
-        //Paste the clipboard value
-        robot.keyPress(KeyEvent.VK_META);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_META);
-        robot.keyRelease(KeyEvent.VK_V);
-
-        //Press Enter key to close the Goto window and Upload window
-        robot.delay(1000);
+        // Press Enter
         robot.keyPress(KeyEvent.VK_ENTER);
+
+// Release Enter
         robot.keyRelease(KeyEvent.VK_ENTER);
-        robot.delay(1000);
+
+        // Press CTRL+V
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+
+// Release CTRL+V
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+        Thread.sleep(1000);
+
+        //Press Enter
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
 

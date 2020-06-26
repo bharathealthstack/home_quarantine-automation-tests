@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 
 import java.awt.*;
 
+
 public class HQProviderTest extends ProjectWrappers {
 
     public String n="phonenumber";
-    public String path="/Users/madanraj.thangarajthoughtworks.com/Desktop/HQ/Home_Quarantine/src/test/java/HomeQuarantineTests/xlsx/service_provider.xlsx";
+    public String path="C:\\Users\\madan\\OneDrive\\Desktop\\HQ\\home_quarantine-automation-tests\\src\\test\\java\\HomeQuarantineTests\\xlsx\\service_provider.xlsx";
 
     @BeforeClass
     public void beforeClass() {
