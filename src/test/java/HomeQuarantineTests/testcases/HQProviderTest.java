@@ -2,6 +2,7 @@ package HomeQuarantineTests.testcases;
 
 import HomeQuarantineTests.pages.LoginPage;
 import HomeQuarantineTests.wrappers.ProjectWrappers;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -52,15 +53,31 @@ public class HQProviderTest extends ProjectWrappers {
         Assert.assertEquals(option3, obj.getProperty("option3"));
     }
 
-//    //1
+//    //10
 //    @Test
 //    public void hqAccessOnly() throws InterruptedException, AWTException {
 //
-//        new LoginPage(driver).role(m).login().enterOtp().verify();//.uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
-//
-//        String hqname= driver.findElementByXPath("//div[contains(text(),'HQ - Provider')]").getText();
-//        Assert.assertEquals(hqname, obj.getProperty("hqname"));
+//        new LoginPage(driver).role(m).login().enterOtp().verify().uploadOption();//.chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
+//        Thread.sleep(4000);
+//        WebElement a = driver.findElementByXPath("//*[name()='path' and contains(@d,'M17.65 6.3')]");
+//        a.click();
+//        Thread.sleep(4000);
+////        String hqname= driver.findElementByXPath("//div[contains(text(),'HQ - Provider')]").getText();
+////        Assert.assertEquals(hqname, obj.getProperty("hqname"));
 //    }
+
+    @Test
+    public void reportFlow() throws InterruptedException, AWTException {
+
+        new LoginPage(driver).role(m).login().enterOtp().verify().uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
+
+        String report= driver.findElementByXPath("//*[text()='Request for file download submitted. Please watch file logs']").getText();
+        String title= driver.getTitle();
+        Assert.assertEquals(title, obj.getProperty("titleurl"));
+        Assert.assertEquals(report,"Request for file download submitted. Please watch file logs");
+        System.out.println(report);
+    }
+
 
     @AfterClass
     public void afterClass() {
