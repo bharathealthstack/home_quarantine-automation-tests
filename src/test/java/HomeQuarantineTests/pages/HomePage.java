@@ -40,14 +40,15 @@ public class HomePage extends HomePageObjects {
         //WebElement element = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div[2]/div/div/div[1]/input"));
 
            Actions actions = new Actions(driver);
-           actions.moveToElement(driver.findElement(By.xpath("//input[@type='file']")))
-                   .click().pause(2000).build().perform();
-           return this;
+//           actions.moveToElement(driver.findElement(By.xpath("//input[@type='file']")))
+//                   .click().pause(2000).build().perform();
 
+            driver.findElement(By.xpath("//input[@id='file']")).sendKeys("/home/hasher/Downloads/patient onboarding by provider-1594295694089-Success.xlsx");
+           return this;
 
     }
 
-    public HomePage pickfile(String path) throws InterruptedException, AWTException {
+    public HomePage pickFile(String path) throws InterruptedException, AWTException {
 
         Thread.sleep(4000);
         //File Need to be imported
@@ -61,40 +62,43 @@ public class HomePage extends HomePageObjects {
 
         // Create object of Robot class
         Robot robot = new Robot();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         // Press Enter
         robot.keyPress(KeyEvent.VK_ENTER);
 
-// Release Enter
+        // Release Enter
         robot.keyRelease(KeyEvent.VK_ENTER);
 
         // Press CTRL+V
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_V);
 
-// Release CTRL+V
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyRelease(KeyEvent.VK_V);
-        Thread.sleep(1000);
-
-        //Press Enter
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+        // Release CTRL+V
+//        robot.keyRelease(KeyEvent.VK_CONTROL);
+//        robot.keyRelease(KeyEvent.VK_V);
+//        Thread.sleep(1000);
+//
+//        //Press Enter
+//        robot.keyPress(KeyEvent.VK_ENTER);
+//        robot.keyRelease(KeyEvent.VK_ENTER);
 
         return this;
 
     }
 
-    public HomePage uploadFile(){
+    public HomePage uploadFile() throws InterruptedException {
+        Thread.sleep(4000);
         checkVisibility(uploadbtn);
         uploadbtn.click();
+        Thread.sleep(2000);
         return this;
     }
 
-    public HomePage clickAlert(){
+    public HomePage clickAlert() throws InterruptedException {
         checkVisibility(alert);
         alert.click();
+        Thread.sleep(4000);
         return this;
     }
 
@@ -106,18 +110,21 @@ public class HomePage extends HomePageObjects {
     }
 
     public HomePage reportCheck() throws InterruptedException {
+        Thread.sleep(5000);
         checkVisibility(report);
         report.click();
         return this;
     }
 
-    public HomePage todayDate(){
+    public HomePage todayDate() throws InterruptedException{
+        Thread.sleep(5000);
         checkVisibility(date);
         date.click();
         return this;
     }
 
-    public HomePage todayReport(){
+    public HomePage todayReport() throws InterruptedException{
+        Thread.sleep(5000);
         checkVisibility(today);
         today.click();
         return this;
