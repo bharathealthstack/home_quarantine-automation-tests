@@ -35,7 +35,7 @@ public class ProjectWrappers extends GenricWrappers {
     @AfterMethod
     public void afterMethod() {
         homePage=new HomePage(driver);
-        homePage.endSession();
+       // homePage.endSession();
 
     }
 

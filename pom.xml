@@ -10,11 +10,7 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+        
 
       <!--  <dependency>
             <groupId>io.rest-assured</groupId>
