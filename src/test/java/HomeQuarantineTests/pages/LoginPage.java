@@ -12,7 +12,7 @@ public class LoginPage extends LoginPageObjects {
     private WebDriverWait wait;
 
     public LoginPage(RemoteWebDriver driver) {
-        this.driver = driver;
+        this. driver = driver;
         wait = new WebDriverWait(driver, 15, 50);
         PageFactory.initElements(driver, this);
 

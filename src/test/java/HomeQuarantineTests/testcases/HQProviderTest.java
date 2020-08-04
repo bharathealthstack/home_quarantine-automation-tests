@@ -13,7 +13,7 @@ import java.awt.*;
 
 public class HQProviderTest extends ProjectWrappers {
 
-    public String m="phonenumber";
+    public String mobile="phonenumber";
     //public String path="C:\\Users\\madan\\OneDrive\\Desktop\\HQ\\home_quarantine-automation-tests\\src\\test\\java\\HomeQuarantineTests\\xlsx\\service_provider.xlsx";
     public String path="/home/hasher/patient onboarding by provider-1594295694089-Success.xlsx";
 
@@ -27,7 +27,7 @@ public class HQProviderTest extends ProjectWrappers {
     @Test
     public void singleFlow() throws InterruptedException, AWTException {
 
-        new LoginPage(driver).role(m).login().enterOtp().verify().uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
+        new LoginPage(driver).role(mobile).login().enterOtp().verify().uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
 
         String report= driver.findElementByXPath("//*[text()='Request for file download submitted. Please watch file logs']").getText();
         String title= driver.getTitle();
@@ -40,7 +40,7 @@ public class HQProviderTest extends ProjectWrappers {
     @Test
     public void checkOptions() throws InterruptedException, AWTException {
 
-        new LoginPage(driver).role(m).login().enterOtp().verify();//2 .uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
+        new LoginPage(driver).role(mobile).login().enterOtp().verify();//2 .uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
 
         String hqname= driver.findElementByXPath("//div[contains(text(),'HQ - Provider')]").getText();
         Assert.assertEquals(hqname, obj.getProperty("hqname"));//1
@@ -57,7 +57,7 @@ public class HQProviderTest extends ProjectWrappers {
     @Test
     public void hqAccessOnly() throws InterruptedException, AWTException {
 
-        new LoginPage(driver).role(m).login().enterOtp().verify().uploadOption();//.chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
+        new LoginPage(driver).role(mobile).login().enterOtp().verify().uploadOption();//.chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
         Thread.sleep(4000);
         WebElement a = driver.findElementByXPath("//div[@class='tab-container-bottom']//*[local-name()='svg']");
         a.click();

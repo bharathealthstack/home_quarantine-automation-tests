@@ -30,6 +30,7 @@ public class HomePage extends HomePageObjects {
     public HomePage uploadOption() throws InterruptedException {
         checkVisibility(uploadicon);
         uploadicon.click();
+        
         Thread.sleep(4000);
         return this;
 
@@ -43,7 +44,8 @@ public class HomePage extends HomePageObjects {
 //           actions.moveToElement(driver.findElement(By.xpath("//input[@type='file']")))
 //                   .click().pause(2000).build().perform();
 
-            driver.findElement(By.xpath("//input[@id='file']")).sendKeys("/home/hasher/Downloads/patient onboarding by provider-1594295694089-Success.xlsx");
+            driver.findElement(By.xpath("//input[@id='file']")).sendKeys("C:\\Users\\hasher\\eclipse-workspace\\home_quarantine-automation-tests\\src\\test\\java\\"
+            		+ "HomeQuarantineTests\\xlsx\\patient onboarding by provider (2)-1595346265549-Success.xlsx");
            return this;
 
     }
@@ -117,14 +119,14 @@ public class HomePage extends HomePageObjects {
     }
 
     public HomePage todayDate() throws InterruptedException{
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         checkVisibility(date);
         date.click();
         return this;
     }
 
     public HomePage todayReport() throws InterruptedException{
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         checkVisibility(today);
         today.click();
         return this;
@@ -136,6 +138,7 @@ public class HomePage extends HomePageObjects {
         Thread.sleep(3000);
         return this;
     }
+    
 
     public LoginPage endSession(){
         checkVisibility(logout);
