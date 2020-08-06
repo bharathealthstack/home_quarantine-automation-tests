@@ -29,7 +29,8 @@ public class ProjectWrappers extends GenricWrappers {
     @BeforeMethod
     public void beforeMethod() {
 
-        getBrowser(browser, "https://ops-stage4192.swasthapp.org/login");
+        //getBrowser(browser, "https://www.google.com/");
+        getBrowser(browser, "http://ops-stage4192.swasthapp.org/login");
     }
 
     @AfterMethod

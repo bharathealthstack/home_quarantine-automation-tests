@@ -17,7 +17,7 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ReadExcelDataDownload {
+public class ReadExcelData {
 
 	public static List processTemplateData(String inFileName, String SearchType, String sheetRow, boolean isfileDelRequired) throws IOException {
 
@@ -75,7 +75,7 @@ public class ReadExcelDataDownload {
 
 			System.out.println("Created InputStream of file:" + inputExcelFile);
 
-			wb = ReadExcelDataDownload.getWorkbook(inputExcelFile, fileName);
+			wb = ReadExcelData.getWorkbook(inputExcelFile, fileName);
 			System.out.println("Created workbook: " + wb);
 
 			sheet = wb.getSheetAt(0);
@@ -92,7 +92,7 @@ public class ReadExcelDataDownload {
 
 			System.out.println("Total Rows: " + (totalRow + 1));
 
-			lastRowList = ReadExcelDataDownload.getCellData(totalRow,sheet);
+			lastRowList = ReadExcelData.getCellData(totalRow,sheet);
 			System.out.println("List created [ " + lastRowList + "]");
 
 			return lastRowList;
@@ -273,9 +273,9 @@ public class ReadExcelDataDownload {
 		List downloadlist = new ArrayList();
 		List uploadHheaderList = null;
 		List uploadFirstRowList = new ArrayList();
-		downloadlist = ReadExcelDataDownload.processTemplateData("Request_File_swasth-to-sp", "Search", "LastRow", true);
+		downloadlist = ReadExcelData.processTemplateData("Request_File_swasth-to-sp", "Search", "LastRow", true);
 //		uploadHheaderList = ReadExcelDataDownload.processTemplateData("Patient Onboarding Details - SP to Swasth", "Search", "FirstRow",false);
-		uploadFirstRowList = ReadExcelDataDownload.processTemplateData("Patient Onboarding Details - SP to Swasth", "Search", "LastRow",false);
+		uploadFirstRowList = ReadExcelData.processTemplateData("Patient Onboarding Details - SP to Swasth", "Search", "LastRow",false);
 
 //		WriteExcelData.processTemplateWrite(downloadlist);
 		uploadHheaderList = new ArrayList(Arrays.asList("Name of Patient", "Mobile Number", "DOB(dd/mm/yyyy)", "AGE", "Platform Reference Number", "Gender", "Address", "ZONE", "Pincode", "Language", "Patient Condition", "Upload reference", "Medical reference", "Onboarding call date(dd/mm/yyyy)", "call Connected", "Eligible for Home quarantine", "Reason non-eligibility", "Patient Consent", "Onboarding Calls", "Reason for admission", "Covid test result", "Date of Covid test result(dd/mm/yyyy)", "Other conditions and ongoing medications", "Caregiver full name", "Caregiver contact number", "Caregiver relationship"));
