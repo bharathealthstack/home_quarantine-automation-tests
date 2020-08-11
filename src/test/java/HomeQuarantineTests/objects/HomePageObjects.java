@@ -10,6 +10,9 @@ public class HomePageObjects extends GenricWrappers {
     @FindBy(xpath = "//div[text()='Upload']")
     public  WebElement uploadicon;
 
+    @FindBy(xpath = "//h2[contains(text(),'Patients Report')]")
+    public  WebElement reporticon;
+
     @FindBy(xpath = "//input[@type='file']")
     public  WebElement file;
 
