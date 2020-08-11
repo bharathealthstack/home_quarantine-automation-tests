@@ -29,7 +29,7 @@ public class HQPartnerTest extends ProjectWrappers {
     public void singleFlow() throws InterruptedException, AWTException {
 
         //new LoginPage(driver).role(n).login().enterOtp().verify().uploadOption().chooseFile();//.pickfile(path).uploadFile().clickAlert();
-        new LoginPage(driver).role(n).login().enterOtp().verify().uploadOption().chooseFile().pickFile(path).uploadFile().clickAlert();
+        //new LoginPage(driver).role(n).login().enterOtp().verify().uploadOption().chooseFile("Onboarding").pickFile(path).uploadFile().clickAlert();
 
         String report= driver.findElementByXPath("//*[text()='Request for file download submitted']").getText();
         String title= driver.getTitle();

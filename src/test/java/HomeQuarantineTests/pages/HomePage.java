@@ -35,7 +35,15 @@ public class HomePage extends HomePageObjects {
     public HomePage uploadOption() throws InterruptedException {
         checkVisibility(uploadicon);
         uploadicon.click();
-        
+
+        Thread.sleep(4000);
+        return this;
+    }
+
+    public HomePage reportOption() throws InterruptedException {
+        checkVisibility(reporticon);
+        reporticon.click();
+
         Thread.sleep(4000);
         return this;
     }
@@ -72,21 +80,20 @@ public class HomePage extends HomePageObjects {
 
 
 
-    public HomePage chooseFile(){
+    public HomePage chooseFile(String type){
 
-        //WebElement element = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div[2]/div/div/div[1]/input"));
+        Actions actions = new Actions(driver);
+        //           actions.moveToElement(driver.findElement(By.xpath("//input[@type='file']")))
+        //                   .click().pause(2000).build().perform();
 
-           Actions actions = new Actions(driver);
-//           actions.moveToElement(driver.findElement(By.xpath("//input[@type='file']")))
-//                   .click().pause(2000).build().perform();
-
-
+        if (type.equalsIgnoreCase("Onboarding"))
             driver.findElement(By.xpath("//input[@id='file']")).sendKeys("/home/hasher/Downloads/Patient Onboarding Details - SP to Swasth.xlsx");
+        else if(type.equalsIgnoreCase("Report"))
+            driver.findElement(By.xpath("//input[@id='file']")).sendKeys("/home/hasher/Downloads/Daily Monitoring Sheet.xlsx");
+        //driver.findElement(By.xpath("//input[@id='file']")).sendKeys("C:\\Users\\hasher\\eclipse-workspace\\home_quarantine-automation-tests\\src\\test\\java\\"
+        //		+ "HomeQuarantineTests\\xlsx\\patient onboarding by provider (2)-1595346265549-Success.xlsx");
 
-            //driver.findElement(By.xpath("//input[@id='file']")).sendKeys("C:\\Users\\hasher\\eclipse-workspace\\home_quarantine-automation-tests\\src\\test\\java\\"
-            //		+ "HomeQuarantineTests\\xlsx\\patient onboarding by provider (2)-1595346265549-Success.xlsx");
-
-           return this;
+        return this;
 
     }
 
@@ -191,6 +198,12 @@ public class HomePage extends HomePageObjects {
 
     public HomePage processTemplateData() throws IOException {
         ReadWriteExcelData.processTemplateData();
+        //ReadWriteExcelData.processTemplateDataPatients();
+        return this;
+    }
+
+    public HomePage processTemplateDataPatients() throws IOException {
+        ReadWriteExcelData.processTemplateDataPatients();
         return this;
     }
 

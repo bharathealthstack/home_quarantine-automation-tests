@@ -26,7 +26,7 @@ public class HQProviderTest extends ProjectWrappers {
     @Test(priority = 2)
     public void singleFlow() throws InterruptedException, AWTException {
 
-        new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().chooseFile().uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
+        new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().chooseFile("Onboarding").uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
 
         String report = driver.findElementByXPath("//*[text()='Request for file download submitted. Please watch file logs']").getText();
         String title = driver.getTitle();
@@ -67,9 +67,16 @@ public class HQProviderTest extends ProjectWrappers {
 
     //Happy flow -  On boarding patient
     @Test
-    public void reportFlow() throws InterruptedException, AWTException, IOException {
+    public void onBoardPatient() throws InterruptedException, AWTException, IOException {
 
-        new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().requestDataFile().downloadLogs().uploadLogs().processTemplateData().chooseFile().uploadFile().clickAlert().reportCheck();//.todayDate().todayReport().downloadReport();
+        new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().requestDataFile().downloadLogs().uploadLogs().processTemplateData().chooseFile("Onboarding").uploadFile().clickAlert().reportCheck();//.todayDate().todayReport().downloadReport();
+    }
+
+    //Happy flow -  On boarding patient
+    @Test
+    public void patientReport() throws InterruptedException, AWTException, IOException {
+
+        new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().reportOption().requestDataFile().downloadLogs().uploadLogs().processTemplateDataPatients().chooseFile("Report").uploadFile().clickAlert().reportCheck();//.todayDate().todayReport().downloadReport();
     }
 
 
