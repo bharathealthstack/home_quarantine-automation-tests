@@ -53,12 +53,6 @@ public class ReadExcelData {
 		String fileName = downloadDir+"/" + filename1; //Request_File_swasth-to-sp-1596161108066-Request_File.xlsx"; //Read.xls";
 		System.out.println("File is called : " + fileName);
 
-//		if (fileName.startsWith("MyTextFile_")
-//				&& fileName.endsWith(".txt")) {
-//			System.out.println("found file" + " " + fileName);
-//		}
-//	}
-//
 		InputStream inputExcelFile = null;
 		Workbook wb = null;
 		Sheet sheet = null;
@@ -97,58 +91,6 @@ public class ReadExcelData {
 
 			return lastRowList;
 
-
-//			String lCellValue = null;
-//
-//
-//			for (int rowInd = totalRow; rowInd <= totalRow; rowInd++) {
-//				Row row = sheet.getRow(rowInd);
-////			for (Row row : sheet) {
-//				int totalColumns = row.getLastCellNum();
-//
-////				for(int i = 0; i < totalColumns; i++) {
-////					Cell cell = row.getCell(i);
-//				for (Cell cell : row) {
-//					System.out.println(cell.getCellType());
-//					switch (cell.getCellType()) {
-//						case NUMERIC:
-//							if (DateUtil.isCellDateFormatted(cell)) {
-//								//DataFormatter�formatter�=�new�DataFormatter();
-//								DataFormatter DF = new DataFormatter();
-//								lCellValue = DF.formatCellValue(cell).toString();
-//								//lCellValue = cell.getDateCellValue().toString() + "";
-//							} else {
-//								DecimalFormat df = new DecimalFormat("###.##");
-//								lCellValue = df.format(cell.getNumericCellValue()).trim().toString();
-//							}
-//							break;
-//						case STRING:
-//							// System.out.println("CELL_TYPE_STRING:"+cell.getStringCellValue());
-//							lCellValue = cell.getStringCellValue().trim() + "";
-//							break;
-//						case BOOLEAN:
-//							// System.out.println("CELL_TYPE_BOOL:"+cell.getBooleanCellValue());
-//							lCellValue = String.valueOf(cell.getBooleanCellValue());
-//							break;
-//						case BLANK:
-//							// System.out.println("CELL_TYPE_BLANK");
-//							lCellValue = "";
-//							break;
-//						case ERROR:
-//							// System.out.println("CELL_TYPE_ERROR:"+cell.getErrorCellValue());
-//							lCellValue = cell.getErrorCellValue() + "";
-//							break;
-//						default:
-//							// System.out.println("CELL_TYPE_UNKNOW");
-//							lCellValue = "";
-//							break;
-//					}
-//					System.out.println("lCellValue: " + lCellValue);
-//					lastRowList.add(lCellValue);
-//				}
-//			}
-//			System.out.println("Final List: " + lastRowList);
-//			WriteExcelData.processTemplateWrite(lastRowList);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -179,8 +121,7 @@ public class ReadExcelData {
 		try {
 			System.out.println(input);
 			if (excelFilePath.endsWith("xlsx")) {
-//				opcPackage = OPCPackage.open(input);
-//				workbook = new XSSFWorkbook(opcPackage);
+
 
 				InputStream fis = new FileInputStream(file);   //obtaining bytes from the file
 				//creating Workbook instance that refers to .xlsx file
@@ -265,23 +206,6 @@ public class ReadExcelData {
 			return lastRowList;
 		}
 
-	}
-
-
-	
-	public static void main(String[] args) throws IOException {
-		List downloadlist = new ArrayList();
-		List uploadHheaderList = null;
-		List uploadFirstRowList = new ArrayList();
-		downloadlist = ReadExcelData.processTemplateData("Request_File_swasth-to-sp", "Search", "LastRow", true);
-//		uploadHheaderList = ReadExcelDataDownload.processTemplateData("Patient Onboarding Details - SP to Swasth", "Search", "FirstRow",false);
-		uploadFirstRowList = ReadExcelData.processTemplateData("Patient Onboarding Details - SP to Swasth", "Search", "LastRow",false);
-
-//		WriteExcelData.processTemplateWrite(downloadlist);
-		uploadHheaderList = new ArrayList(Arrays.asList("Name of Patient", "Mobile Number", "DOB(dd/mm/yyyy)", "AGE", "Platform Reference Number", "Gender", "Address", "ZONE", "Pincode", "Language", "Patient Condition", "Upload reference", "Medical reference", "Onboarding call date(dd/mm/yyyy)", "call Connected", "Eligible for Home quarantine", "Reason non-eligibility", "Patient Consent", "Onboarding Calls", "Reason for admission", "Covid test result", "Date of Covid test result(dd/mm/yyyy)", "Other conditions and ongoing medications", "Caregiver full name", "Caregiver contact number", "Caregiver relationship"));
-		System.out.println("downloadlist:"+ downloadlist);
-		System.out.println("uploadHheaderList:" +uploadHheaderList);
-		System.out.println("uploadFirstRowList:" + uploadFirstRowList);
 	}
 
 }
