@@ -32,7 +32,6 @@ public class WriteExcelData {
 
             Cell cell = row.createCell(cellnum++);
             if(Request instanceof  String){
-                //System.out.println("Values: " + Request);
                 cell.setCellValue((String) Request);
             }
         }
@@ -42,7 +41,6 @@ public class WriteExcelData {
 
             Cell cell = row.createCell(cellnum++);
             if(Request instanceof  String){
-                //System.out.println("Values: " + Request);
                 cell.setCellValue((String) Request);
             }
         }
@@ -52,7 +50,6 @@ public class WriteExcelData {
         try {
             System.out.println("outputFile:"+outputFile);
             FileOutputStream fos = new FileOutputStream( new File(outputFile));
-            //System.out.println("File OS:"+fos);
             workbook.write(fos);
             fos.close();
         } catch (Exception e){
@@ -78,7 +75,6 @@ public class WriteExcelData {
 
             Cell cell = row.createCell(cellnum++);
             if(Request instanceof  String){
-                //System.out.println("Values: " + Request);
                 cell.setCellValue((String) Request);
             }
         }
@@ -98,7 +94,6 @@ public class WriteExcelData {
         try {
             System.out.println("outputFile:"+outputFile);
             FileOutputStream fos = new FileOutputStream( new File(outputFile));
-            //System.out.println("File OS:"+fos);
             workbook.write(fos);
             fos.close();
         } catch (Exception e){

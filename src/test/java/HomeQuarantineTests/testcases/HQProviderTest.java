@@ -14,8 +14,6 @@ import java.io.IOException;
 
 public class HQProviderTest extends ProjectWrappers {
 
-   // public String path = "/home/hasher/Downloads/Stage/home_quarantine-automation-tests/src/test/java/HomeQuarantineTests/xlsx/patient onboarding by provider-1594295694089-Success.xlsx";
-
     @BeforeClass
     public void beforeClass() {
         description = "To ensure functionality breakdown";
@@ -23,7 +21,7 @@ public class HQProviderTest extends ProjectWrappers {
     }
 
     //4
-    @Test(priority = 2)
+    @Test(priority = 2 , enabled=false)
     public void singleFlow() throws InterruptedException, AWTException {
 
         new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().chooseFile("Onboarding").uploadFile().clickAlert().reportCheck().todayDate().todayReport().downloadReport();
@@ -61,19 +59,17 @@ public class HQProviderTest extends ProjectWrappers {
         WebElement a = driver.findElementByXPath("//div[@class='tab-container-bottom']//*[local-name()='svg']");
         a.click();
         Thread.sleep(4000);
-//        String hqname= driver.findElementByXPath("//div[contains(text(),'HQ - Provider')]").getText();
-//        Assert.assertEquals(hqname, obj.getProperty("hqname"));
     }
 
     //Happy flow -  On boarding patient
-    @Test
+    @Test(priority = 1)
     public void onBoardPatient() throws InterruptedException, AWTException, IOException {
 
         new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().requestDataFile().downloadLogs().uploadLogs().processTemplateData().chooseFile("Onboarding").uploadFile().clickAlert().reportCheck();//.todayDate().todayReport().downloadReport();
     }
 
     //Happy flow -  On boarding patient
-    @Test
+    @Test(priority = 2)
     public void patientReport() throws InterruptedException, AWTException, IOException {
 
         new LoginPage(driver).role("phonenumber").login().enterOtp().verify().uploadOption().reportOption().requestDataFile().downloadLogs().uploadLogs().processTemplateDataPatients().chooseFile("Report").uploadFile().clickAlert().reportCheck();//.todayDate().todayReport().downloadReport();

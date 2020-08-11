@@ -29,7 +29,6 @@ public class ReadExcelData {
 			dir= new File(downloadDir);
 			FilenameFilter filter = new FilenameFilter() {
 				public boolean accept(File dir, String name) {
-//					return name.startsWith("Request_File_swasth-to-sp");
 					return name.startsWith(inFileName);
 				}
 			};
@@ -166,37 +165,29 @@ public class ReadExcelData {
 					switch (cell.getCellType()) {
 						case NUMERIC:
 							if (DateUtil.isCellDateFormatted(cell)) {
-								//DataFormatter�formatter�=�new�DataFormatter();
 								DataFormatter DF = new DataFormatter();
 								lCellValue = DF.formatCellValue(cell).toString();
-								//lCellValue = cell.getDateCellValue().toString() + "";
 							} else {
 								DecimalFormat df = new DecimalFormat("###.##");
 								lCellValue = df.format(cell.getNumericCellValue()).trim().toString();
 							}
 							break;
 						case STRING:
-							// System.out.println("CELL_TYPE_STRING:"+cell.getStringCellValue());
 							lCellValue = cell.getStringCellValue().trim() + "";
 							break;
 						case BOOLEAN:
-							// System.out.println("CELL_TYPE_BOOL:"+cell.getBooleanCellValue());
 							lCellValue = String.valueOf(cell.getBooleanCellValue());
 							break;
 						case BLANK:
-							// System.out.println("CELL_TYPE_BLANK");
 							lCellValue = "";
 							break;
 						case ERROR:
-							// System.out.println("CELL_TYPE_ERROR:"+cell.getErrorCellValue());
 							lCellValue = cell.getErrorCellValue() + "";
 							break;
 						default:
-							// System.out.println("CELL_TYPE_UNKNOW");
 							lCellValue = "";
 							break;
 					}
-					//System.out.println("lCellValue: " + lCellValue);
 					lastRowList.add(lCellValue);
 				}
 			}
